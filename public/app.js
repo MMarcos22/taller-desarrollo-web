@@ -68,6 +68,14 @@ async function eliminarInscripcion(id) {
   cargarInscripciones();
 }
 
+// Si el navegador detecta un campo vacío o inválido, mostramos un aviso comprensible.
+formulario.addEventListener("invalid", (evento) => {
+  const campo = evento.target;
+  if (campo !== formulario.querySelector(":invalid")) return; // solo el primero
+  const etiqueta = formulario.querySelector(`label[for="${campo.id}"]`).textContent;
+  mostrarMensaje(`Revisa el campo «${etiqueta}»: ${campo.validationMessage}`, true);
+}, true);
+
 formulario.addEventListener("submit", async (evento) => {
   // 1: Evita que el formulario recargue la página.
   evento.preventDefault();

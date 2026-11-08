@@ -22,8 +22,9 @@ button:hover { background: #06656b; }
 #lista-inscripciones li { padding: .6rem; border-radius: 8px; background: #eef9f6; }
 .vacio { color: #647188; background: transparent !important; }
 
-/* Mensaje de error en rojo */
+/* Mensaje de error en rojo y campos inválidos marcados después de interactuar */
 .mensaje.error { color: #b42318; }
+input:user-invalid, select:user-invalid { border-color: #b42318; background: #fff5f4; }
 
 /* Cada inscripción se muestra como una tarjeta con Flexbox */
 #lista-inscripciones li { display: flex; justify-content: space-between; align-items: center; gap: .75rem; }

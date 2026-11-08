@@ -32,8 +32,16 @@
           <option value="Node.js y Express">Node.js y Express</option>
         </select>
 
-        <!-- TODO: Agrega teléfono con type="tel", name e id relacionados. -->
-        <!-- TODO: Agrega un selector obligatorio para elegir el horario. -->
+        <label for="telefono">Teléfono</label>
+        <input id="telefono" name="telefono" type="tel" required pattern="[0-9 +\-]{8,15}" title="Escribe de 8 a 15 dígitos (puede llevar espacios o guiones)" placeholder="Ej. 5555-1234" autocomplete="tel">
+
+        <label for="horario">Horario</label>
+        <select id="horario" name="horario" required>
+          <option value="">Selecciona un horario</option>
+          <option value="Mañana">Mañana</option>
+          <option value="Tarde">Tarde</option>
+          <option value="Noche">Noche</option>
+        </select>
 
         <button type="submit">Registrar inscripción</button>
       </form>

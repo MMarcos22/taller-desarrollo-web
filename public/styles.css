@@ -22,4 +22,29 @@ button:hover { background: #06656b; }
 #lista-inscripciones li { padding: .6rem; border-radius: 8px; background: #eef9f6; }
 .vacio { color: #647188; background: transparent !important; }
 
-/* TODO: Agrega aquí una regla @media para mejorar la vista en teléfonos. */
+/* Mensaje de error en rojo */
+.mensaje.error { color: #b42318; }
+
+/* Cada inscripción se muestra como una tarjeta con Flexbox */
+#lista-inscripciones li { display: flex; justify-content: space-between; align-items: center; gap: .75rem; }
+.datos-inscripcion { display: flex; flex-direction: column; gap: .15rem; }
+.datos-inscripcion strong { color: #18253b; }
+.datos-inscripcion span { color: #3d4b63; font-size: .92rem; }
+.boton-quitar { min-height: 36px; margin-top: 0; padding: .4rem .8rem; background: #b42318; font-size: .85rem; }
+.boton-quitar:hover { background: #8f1c13; }
+
+/* En pantallas anchas, formulario y lista quedan lado a lado (Grid) */
+@media (min-width: 900px) {
+  .contenedor { width: min(100% - 2rem, 1100px); display: grid; grid-template-columns: 1fr 1fr; gap: 0 1.25rem; align-items: start; }
+  .encabezado { grid-column: 1 / -1; }
+}
+
+/* En teléfonos (640 px o menos) se reduce el espacio y la lista se apila */
+@media (max-width: 640px) {
+  .contenedor { padding: 1.5rem 0; }
+  .panel { padding: 1rem; border-radius: 12px; }
+  h1 { font-size: 2rem; }
+  #lista-inscripciones { padding-left: 0; list-style: none; }
+  #lista-inscripciones li { flex-direction: column; align-items: flex-start; }
+  .boton-quitar { width: 100%; }
+}
